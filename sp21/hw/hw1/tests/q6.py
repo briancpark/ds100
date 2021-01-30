@@ -1,1 +1,0 @@
-test = {'name': 'q6', 'points': 1, 'suites': [{'cases': [{'code': '>>> type(q6_survey) == str\nTrue', 'hidden': False, 'locked': False}], 'scored': True, 'setup': '', 'teardown': '', 'type': 'doctest'}]}
