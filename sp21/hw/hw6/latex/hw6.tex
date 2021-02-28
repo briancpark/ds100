@@ -14,7 +14,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Start %%%%%%%%%%%%%%%%%
 \begin{document}
-
+\textbf{Collaborators:} None
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Question 1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -43,6 +43,7 @@
 		$$0 = \sum_{i = 1}^ny_i - \sum_{i = 1}^n\hat{y}_i$$
 		$$0 = n\bar{y} - n\hat{\bar{y}}_i$$
 		$$n\bar{y} = n\hat{\bar{y}}_i$$
+		$$\bar{y} = \hat{\bar{y}}_i$$
 		\newpage
 		\item
 		Using the last formula given, we can just plug in $\bar{x}$:
@@ -61,6 +62,13 @@
 
 \begin{Answer}
 	%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
+	\begin{Parts}
+		\item From the concepts from lecture, recall that for an optimal parameter $\hat{\theta}$, the residual vector $e$ becomes orthogonal to the $span(\mathbb{X})$. So we know that one vector from the $span(\mathbb{X})$ will cause the summation of residuals to be zero. So for such a vector $\vec{x}  \in \mathbb{X}$, $\vec{e}\cdot\vec{x} = 0$. In this case, we will conveniently prove it with the bias vector:
+		$$\vec{e}\cdot\vec{1} = 0$$
+		$$\sum_{i = 1}^ne_i = 0$$
+		\item If we considered the data vector $\vec{x}$ and residual vector $\vec{e}$ to be orthogonal, then it geometrically makes sense. Adding vectors $x$ and $e$ will lead to the projection of another vector on to a hyperplane, which happens to be the hyperplane of the regression formula. Thus, the orthogonal projection of the residual vector on $\vec{x}$ has to be true as it minimizes the distance or residual. We've essentially created a triangle with an adjacent side and hypotenuse, and the only way to have the opposite side as minimum as possible is to have it perpendicular to the adjacent side. Connecting it with other parts, minimizing the residual also makes sense in terms of minimizing the loss function.
+		\item 
+	\end{Parts}
 \end{Answer}
 \newpage
 
@@ -90,7 +98,10 @@
 % Question 4
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Question{Properties of a Linear Model With No Constant Term}
-
+\begin{Answer}
+	%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
+	
+\end{Answer}
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
