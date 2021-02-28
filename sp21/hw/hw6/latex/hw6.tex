@@ -22,6 +22,35 @@
 
 \begin{Answer}
 	%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
+	\begin{Parts}
+		\item 
+		$$0 = \sum_{i = 1}^ne_i$$
+		$$0 = \sum_{i = 1}^ny_i - \hat{y_i}$$
+		$$0 = \sum_{i = 1}^ny_i - \sum_{i = 1}^n\hat{y_i}$$
+		$$0 = n\bar{y} - \sum_{i = 1}^n\hat{y_i}$$
+		$$0 = n\bar{y} - \sum_{i = 1}^n\bar{y} + r\sigma_y\frac{x_i - \bar{x}}{\sigma_x}$$
+		$$0 = n\bar{y} - \sum_{i = 1}^n\bar{y} - \sum_{i = 1}^nr\sigma_y\frac{x_i - \bar{x}}{\sigma_x}$$
+		$$0 = n\bar{y} - n\bar{y} - \sum_{i = 1}^nr\sigma_y\frac{x_i - \bar{x}}{\sigma_x}$$
+		$$0 = - \sum_{i = 1}^nr\sigma_y\frac{x_i - \bar{x}}{\sigma_x}$$
+		$$0 = - \sum_{i = 1}^nr\sigma_y\frac{x_i}{\sigma_x} + \sum_{i = 1}^nr\sigma_y\frac{\bar{x}}{\sigma_x}$$
+		$$\sum_{i = 1}^nr\sigma_y\frac{x_i}{\sigma_x} = \sum_{i = 1}^nr\sigma_y\frac{\bar{x}}{\sigma_x}$$
+		$$r\sigma_y\frac{n\bar{x}}{\sigma_x} = r\sigma_y\frac{n\bar{x}}{\sigma_x}$$
+		$$0 = 0$$
+		\newpage
+		\item
+		$$0 = \sum_{i = 1}^ne_i$$
+		$$0 = \sum_{i = 1}^ny_i - \hat{y}_i$$
+		$$0 = \sum_{i = 1}^ny_i - \sum_{i = 1}^n\hat{y}_i$$
+		$$0 = n\bar{y} - n\hat{\bar{y}}_i$$
+		$$n\bar{y} = n\hat{\bar{y}}_i$$
+		\newpage
+		\item
+		Using the last formula given, we can just plug in $\bar{x}$:
+		$$\hat{y} = \bar{y} + r\sigma_y\frac{\bar{x} - \bar{x}}{\sigma_x}$$
+		$$\hat{y} = \bar{y} + 0$$
+		$$\hat{y} = \bar{y}$$
+		Thus, $(\bar{x}, \bar{y})$ lies on the simple linear regression line.
+	\end{Parts}
 \end{Answer}
 \newpage
 
@@ -42,16 +71,58 @@
 
 \begin{Answer}
 	%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
+	$$R(\gamma) = \frac{1}{n}\sum^n_{i = 1}(y_i - \gamma x_i)^2$$
+	$$R(\gamma) = \frac{1}{n}\sum^n_{i = 1}y_i^2 - 2\gamma x_iy_i + \gamma^2x_i^2$$
+	$$R(\gamma) = \frac{1}{n}\sum^n_{i = 1}y_i^2 - \frac{1}{n}\sum^n_{i = 1}2\gamma x_iy_i + \frac{1}{n}\sum^n_{i = 1}\gamma^2x_i^2$$
+	$$R(\gamma) = \frac{1}{n}\sum^n_{i = 1}y_i^2 - \frac{2\gamma}{n}\sum^n_{i = 1}x_iy_i + \frac{\gamma^2}{n}\sum^n_{i = 1}x_i^2$$
+	$$R(\gamma)\frac{d}{d\gamma} = - \frac{2}{n}\sum^n_{i = 1}x_iy_i + \frac{2\gamma}{n}\sum^n_{i = 1}x_i^2$$
+	$$0 = - \frac{2}{n}\sum^n_{i = 1}x_iy_i + \frac{2\gamma}{n}\sum^n_{i = 1}x_i^2$$
+	$$\frac{2}{n}\sum^n_{i = 1}x_iy_i = \frac{2\gamma}{n}\sum^n_{i = 1}x_i^2$$
+	$$\hat{\gamma} = \frac{\sum^n_{i = 1}x_iy_i}{\sum^n_{i = 1}x_i^2}$$
+	We can also prove that we are minimizing on a convex function by taking the second derivative.
+	$$R(\gamma)\frac{d^2}{d\gamma^2} = \frac{2}{n}\sum^n_{i = 1}x_i^2$$
+	$$0 \leq \frac{2}{n}\sum^n_{i = 1}x_i^2$$
+	Since $x_i$ is being squared and we are taking the sum, we are guaranteed a nonnegative number, thus we are also minimizing over the function.
 \end{Answer}
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Question 4
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Question{Properties of a Linear Model With No Constant Term}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Question 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Question{MSE ``Minimizer"}
 
 \begin{Answer}
 	%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
+	\begin{Parts}
+		\item The MSE loss function can be viewed as a sum of $n$ quadratic terms, each of which can be treated as a function of $x_i$
+		\item $g_i$ is convex if it's second derivative, $\frac{d^2g_i(x)}{d\gamma^2}$:
+		$$\frac{dg_i(x)}{d\gamma} = \frac{1}{n}(-x_i)(y_i - \gamma x_i)$$
+		$$\frac{dg_i(x)}{d\gamma} = -\frac{1}{n}x_iy_i + \frac{1}{n}\gamma x_i^2$$
+		$$\frac{d^2g_i(x)}{d\gamma^2} = \frac{1}{n}x_i^2$$
+		$$\frac{1}{n}x_i^2 \geq 0$$
+		We know that squaring $x_i$ will give a value that is greater than 0, thus the equation $g(\gamma)$ is convex.
+		\item From calculus, we learned that we can find slope of an equation at 0 by taking the first derivative and setting it to 0. Then we can also determine the convexity of the equation by taking the derivative again and figuring out if the function is concave or convex if function is greater or less than 0. Intuitively, the first derivative encodes the slope of the equation at every point for $g_i(x)$. If we are given the condition of convexity, then that means a slope of 0 at a critical point is a minimum or local minima.
+		\item 
+		\begin{enumerate}[i]
+			\item We can just prove $g(x) + h(x)$ is convex by plugging it in.
+			$$(g + h)(cx_1 + (1 - c)x_2) \leq cg(x_1) + (1 - c)g(x_2) + ch(x_1) + (1 - c)h(x_2)$$
+			$$(g + h)(cx_1 + (1 - c)x_2) \leq c(g(x_1) + h(x_1)) + (1 - c)(g(x_2) + h(x_2))$$
+			$$(g + h)(cx_1 + (1 - c)x_2) \leq c(g + h)(x_1) + (1 - c)(g + h)(x_2)$$
+			Thus, $g(x) + h(x)$ follows the same format of convexity given in the problem, so that must mean taking the sum of convex function still leads to a convex function.
+			\item We can rigorously prove by proof by induction for a general case of $n > 2$, where we just take iterative sums and using the previous answer as a base case, but intuitively we know that adding two convex functions should lead to another convex function, as adding functions only really adds up the points in $g(x_i) + h(x_i)$. It also preserves the shape of the function if they are of the same type, e.g. $x^2 + x^4$ is still convex.
+		\end{enumerate}
+		\item We're guaranteed to minimize the MSE loss, as we are squaring terms to remove the negativity. 
+		$$\frac{1}{n}\sum^n_{i = 1}(y_i - \gamma x_i)^2$$
+		$$\frac{1}{n}\sum^n_{i = 1}y_i^2 - 2\gamma x_iy_i + \gamma^2x_i^2$$
+		Then taking the gradient of either $\gamma, x_i, y_i$ will lead to a function greater than or equal to 0, proving convexity.
+	\end{Parts}
 \end{Answer}
 \newpage
 
