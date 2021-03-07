@@ -14,16 +14,17 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Start %%%%%%%%%%%%%%%%%
 \begin{document}
-\textbf{Collaborators:} None
+\textbf{Collaborators:} Jean Lee
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Question 1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Question{Properties of Simple Linear Regression}
 
-\begin{Answer}
-	%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
-	\begin{Parts}
-		\item 
+
+\begin{Parts}
+	\item 
+	\begin{Answer}
+		%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
 		$$0 = \sum_{i = 1}^ne_i$$
 		$$0 = \sum_{i = 1}^ny_i - \hat{y_i}$$
 		$$0 = \sum_{i = 1}^ny_i - \sum_{i = 1}^n\hat{y_i}$$
@@ -36,23 +37,31 @@
 		$$\sum_{i = 1}^nr\sigma_y\frac{x_i}{\sigma_x} = \sum_{i = 1}^nr\sigma_y\frac{\bar{x}}{\sigma_x}$$
 		$$r\sigma_y\frac{n\bar{x}}{\sigma_x} = r\sigma_y\frac{n\bar{x}}{\sigma_x}$$
 		$$0 = 0$$
-		\newpage
-		\item
-		$$0 = \sum_{i = 1}^ne_i$$
-		$$0 = \sum_{i = 1}^ny_i - \hat{y}_i$$
-		$$0 = \sum_{i = 1}^ny_i - \sum_{i = 1}^n\hat{y}_i$$
-		$$0 = n\bar{y} - n\hat{\bar{y}}_i$$
-		$$n\bar{y} = n\hat{\bar{y}}_i$$
-		$$\bar{y} = \hat{\bar{y}}_i$$
-		\newpage
-		\item
+	\end{Answer}
+	\newpage
+	\item
+	\begin{Answer}
+		%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
+		$$\hat{\bar{y}} = \frac{1}{n}\sum^n_{i = 1}\hat{y}$$
+		$$\hat{\bar{y}} = \frac{1}{n}\sum^n_{i = 1}\hat{\theta}_0 + \frac{1}{n}\sum^n_{i = 1}\hat{\theta}_1x_i$$
+		$$\hat{\bar{y}} = \frac{1}{n}\sum^n_{i = 1}\bar{y} - \frac{1}{n}\sum^n_{i = 1}\hat{\theta}_1\bar{x} + \frac{1}{n}\sum^n_{i = 1}\hat{\theta}_1x_i$$
+		$$\hat{\bar{y}} = \bar{y} - \hat{\theta}_1\bar{x} + \hat{\theta}_1\bar{x}$$
+		$$\hat{\bar{y}} = \bar{y}$$
+	\end{Answer}
+	\item
+	\begin{Answer}
+		%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
 		Using the last formula given, we can just plug in $\bar{x}$:
+		$$\hat{y} = \hat{\theta}_0 + \hat{\theta}_1x$$
+		$$\hat{y} = \bar{y} + r\sigma_y\frac{x - \bar{x}}{\sigma_x}$$
+		Plug in $x$ as $\bar{x}$:
 		$$\hat{y} = \bar{y} + r\sigma_y\frac{\bar{x} - \bar{x}}{\sigma_x}$$
 		$$\hat{y} = \bar{y} + 0$$
 		$$\hat{y} = \bar{y}$$
 		Thus, $(\bar{x}, \bar{y})$ lies on the simple linear regression line.
-	\end{Parts}
-\end{Answer}
+	\end{Answer}
+\end{Parts}
+
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -60,16 +69,28 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Question{Geometric Perspective of Least Squares}
 
-\begin{Answer}
-	%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
-	\begin{Parts}
-		\item From the concepts from lecture, recall that for an optimal parameter $\hat{\theta}$, the residual vector $e$ becomes orthogonal to the $span(\mathbb{X})$. So we know that one vector from the $span(\mathbb{X})$ will cause the summation of residuals to be zero. So for such a vector $\vec{x}  \in \mathbb{X}$, $\vec{e}\cdot\vec{x} = 0$. In this case, we will conveniently prove it with the bias vector:
+\begin{Parts}
+	\item
+	\begin{Answer}
+		%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
+		From the concepts from lecture, recall that for an optimal parameter $\hat{\theta}$, the residual vector $e$ becomes orthogonal to the $span(\mathbb{X})$. So we know that one vector from the $span(\mathbb{X})$ will cause the summation of residuals to be zero. So for such a vector $\vec{x}  \in \mathbb{X}$, $\vec{e}\cdot\vec{x} = 0$. In this case, we will conveniently prove it with the bias vector:
 		$$\vec{e}\cdot\vec{1} = 0$$
 		$$\sum_{i = 1}^ne_i = 0$$
-		\item If we considered the data vector $\vec{x}$ and residual vector $\vec{e}$ to be orthogonal, then it geometrically makes sense. Adding vectors $x$ and $e$ will lead to the projection of another vector on to a hyperplane, which happens to be the hyperplane of the regression formula. Thus, the orthogonal projection of the residual vector on $\vec{x}$ has to be true as it minimizes the distance or residual. We've essentially created a triangle with an adjacent side and hypotenuse, and the only way to have the opposite side as minimum as possible is to have it perpendicular to the adjacent side. Connecting it with other parts, minimizing the residual also makes sense in terms of minimizing the loss function.
-		\item 
-	\end{Parts}
-\end{Answer}
+	\end{Answer}
+	\item
+	\begin{Answer}
+		%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
+		If we considered the data vector $\vec{x}$ and residual vector $\vec{e}$ to be orthogonal, then it geometrically makes sense. Adding vectors $x$ and $e$ will lead to the projection of another vector on to a hyperplane, which happens to be the hyperplane of the regression formula. Thus, the orthogonal projection of the residual vector on $\vec{x}$ has to be true as it minimizes the distance or residual. We've essentially created a triangle with an adjacent side and hypotenuse, and the only way to have the opposite side as minimum as possible is to have it perpendicular to the adjacent side. Connecting it with other parts, minimizing the residual also makes sense in terms of minimizing the loss function. In terms of linear algebra, this is equivalent to $\vec{e}$ being orthogonal to the span$(\vec{1}, \vec{x})$ and $\forall \vec{x} \in \text{span}(\vec{1}, \vec{x})$. Thus, $\vec{e}$ is also orthogonal to $\vec{x}$!
+	\end{Answer}
+	\item 
+	\begin{Answer}
+		%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
+		Recall that:
+		$$\mathbb{\hat{Y}} = \mathbb{X}\hat{\theta}$$
+		$$\mathbb{\hat{Y}} = \vec{1}\hat{\theta} + \vec{x}\hat{\theta}$$
+		$\vec{x}$ is just generalized as the design matrix without the bias vector. Since $\mathbb{\hat{Y}}$ is just a linear combination of $\mathbb{X}$, we can conclude that $\mathbb{\hat{Y}} \in \text{span}(\mathbb{X})$. Thus, using answers from the previous problem that: span$(\vec{1}, \vec{x})$ and $\forall \vec{x} \in \text{span}(\vec{1}, \vec{x})$. Thus, $\vec{e}$ is also orthogonal to $\vec{x}$, we can also deduce that $\mathbb{\hat{Y}}$ is also orthogonal to the residual vector!
+	\end{Answer}
+\end{Parts}
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -98,10 +119,38 @@
 % Question 4
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Question{Properties of a Linear Model With No Constant Term}
-\begin{Answer}
-	%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
-	
-\end{Answer}
+\begin{Parts}
+	\item 
+	\begin{Answer}	
+		%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
+		False. Without the bias term, we cannot confidently prove for all cases of $\vec{x}$ that $\vec{1}$ is in the span($x$), as having the bias vector $\vec{1}$ was the whole point being able to prove that $\sum e_i = 0$ in the previous parts. 
+	\end{Answer}
+	\item 
+	\begin{Answer}	
+		%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
+		True. In general, we have proven that $\vec{e}$ is orthogonal to span$(\vec{x})$ and $\vec{x} \in \text{span}(\vec{x})$ for any $\vec{x}$, as this is geometrically the line/hyperplane of best fit, where we have to use the orthogonal projections as the residual vectors. 
+	\end{Answer}
+	\item 
+	\begin{Answer}	
+		%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
+		True. Again, from the previous answers, we have proven that the general case of $\mathbb{\hat{Y}}$ should be orthogonal to $\vec{e}$, as $\mathbb{\hat{Y}}$ is only a linear combination (or rather scalar) in $\mathbb{\hat{Y}} = \hat{\theta}\vec{x}$, thus, $\mathbb{\hat{Y}}$ should remain in the span($\vec{x})$ as $\vec{e}$ is still orthogonal to $\mathbb{\hat{Y}}$ and $\text{span}(\vec{x})$.
+	\end{Answer}
+	\item 
+	\begin{Answer}	
+		%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
+		False. Geometrically, this fails as the hyperplane/line of best fit would be anchored at the origin without an intercept. Mathematically, recall in a previous question that we needed the bias term to prove that $(\bar{x}, \bar{y})$ was on the regression line, or else it is $\mathbb{\hat{Y}} = \hat{\theta}\bar{x}$ without the intercept term.
+	\end{Answer}
+	\newpage
+	\item 
+	\begin{Answer}	
+		%%%%%%%%%%%Write your answer here%%%%%%%%%%%%%%%
+		\centerline{\includegraphics[width=7in]{../q4e.png}}
+		\begin{itemize}
+			\item We see that the simple linear regression model without an intercept term in fact does not have the same slope as the model with an intercept term. (Two lines intersect, thus they are not parallel or have same slope).
+			\item One shortcoming of simple linear regression model without an intercept term is that we overshoot negative values and undershoot positive values. This inbalance causes inaccurate predictions.
+		\end{itemize}
+	\end{Answer}
+\end{Parts}
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
