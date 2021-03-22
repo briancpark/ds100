@@ -201,7 +201,7 @@ Number
 
 
 Census Tract
-Census tract identifier - full map available through the Census Bureau, 
+Census tract identifier - full map available through the Census Bureau, https://www.census.gov/geo/maps-data/maps/2010ref/st17_tract.html
 Plain Text
 
 
