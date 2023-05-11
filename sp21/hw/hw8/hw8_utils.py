@@ -5,14 +5,12 @@ try:
     import plotly
     import plotly.graph_objs as go
 except ImportError:
-    print(
-        "Plotly Package not found. Please run: pip install plotly",
-        file=sys.stderr)
+    print("Plotly Package not found. Please run: pip install plotly", file=sys.stderr)
 
 
 def plot_3d(theta_1_series, theta_2_series, loss_series, loss_function, model, x, y):
-    """Plot 3D Surface and trace of gradient. 
-        
+    """Plot 3D Surface and trace of gradient.
+
     The function takes the following as argument:
         theta_1: a list or array of theta_1 value
         theta_2: a list or array of theta_2 value
@@ -32,9 +30,10 @@ def plot_3d(theta_1_series, theta_2_series, loss_series, loss_function, model, x
         marker=dict(
             size=4,
             color=-loss_series,
-            colorscale='Viridis',
+            colorscale="Viridis",
         ),
-        line=dict(color='rgb(50,170, 140)', width=3))
+        line=dict(color="rgb(50,170, 140)", width=3),
+    )
 
     # Create loss surface
     t1_s = np.linspace(np.min(theta_1_series) - 0.1, np.max(theta_1_series) + 0.1)
@@ -57,21 +56,21 @@ def plot_3d(theta_1_series, theta_2_series, loss_series, loss_function, model, x
         width=800,
         height=700,
         autosize=True,
-        title='Gradient Descent',
+        title="Gradient Descent",
         scene=dict(
             xaxis=dict(
-                gridcolor='rgb(255, 255, 255)',
-                zerolinecolor='rgb(255, 255, 255)',
+                gridcolor="rgb(255, 255, 255)",
+                zerolinecolor="rgb(255, 255, 255)",
                 showbackground=True,
             ),
             yaxis=dict(
-                gridcolor='rgb(255, 255, 255)',
-                zerolinecolor='rgb(255, 255, 255)',
+                gridcolor="rgb(255, 255, 255)",
+                zerolinecolor="rgb(255, 255, 255)",
                 showbackground=True,
             ),
             zaxis=dict(
-                gridcolor='rgb(255, 255, 255)',
-                zerolinecolor='rgb(255, 255, 255)',
+                gridcolor="rgb(255, 255, 255)",
+                zerolinecolor="rgb(255, 255, 255)",
                 showbackground=True,
             ),
             camera=dict(
@@ -80,9 +79,11 @@ def plot_3d(theta_1_series, theta_2_series, loss_series, loss_function, model, x
                     x=-1.7428,
                     y=1.0707,
                     z=0.7100,
-                )),
+                ),
+            ),
             aspectratio=dict(x=1, y=1, z=0.7),
-            aspectmode='manual'),
+            aspectmode="manual",
+        ),
     )
 
     fig = dict(data=data, layout=layout)
