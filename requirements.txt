@@ -17,3 +17,4 @@ SQLAlchemy==1.4.29
 cufflinks
 black[jupyter]
 nbconvert==7.4.0
+pandoc==2.3
