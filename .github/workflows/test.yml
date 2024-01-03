@@ -22,7 +22,7 @@ jobs:
       - name: Install LaTeX and Pandoc
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended texlive-science pandoc
+          sudo apt-get install -y texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended texlive-science texlive-xetex pandoc
 
       - name: Install DS 100
         run: |
