@@ -8,9 +8,11 @@
     )(
         _,
         (lambda _, __, ___: _(_, __, ___))(
-            lambda _, __, ___: bytes([___ % __]) + _(_, __, ___ // __)
-            if ___
-            else (lambda: _).__code__.co_lnotab,
+            lambda _, __, ___: (
+                bytes([___ % __]) + _(_, __, ___ // __)
+                if ___
+                else (lambda: _).__code__.co_lnotab
+            ),
             _ << ________,
             (((_____ << ____) + _) << ((___ << _____) - ___))
             + (((((___ << __) - _) << ___) + _) << ((_____ << ____) + (_ << _)))
@@ -30,10 +32,12 @@
 )(
     *(lambda _, __, ___: _(_, __, ___))(
         (
-            lambda _, __, ___: [__(___[(lambda: _).__code__.co_nlocals])]
-            + _(_, __, ___[(lambda _: _).__code__.co_nlocals :])
-            if ___
-            else []
+            lambda _, __, ___: (
+                [__(___[(lambda: _).__code__.co_nlocals])]
+                + _(_, __, ___[(lambda _: _).__code__.co_nlocals :])
+                if ___
+                else []
+            )
         ),
         lambda _: _.__code__.co_argcount,
         (
