@@ -1,5 +1,4 @@
-"""Some common utilities for classwork and homework in Berkeley's Data100.
-"""
+"""Some common utilities for classwork and homework in Berkeley's Data100."""
 
 import pandas as pd
 import numpy as np
